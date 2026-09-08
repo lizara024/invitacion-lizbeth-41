@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <section class="opening" id="opening" aria-labelledby="openingTitle">
-      <div class="opening__inner">
+    <header class="hero section" id="inicio">
+      <img class="hero__image" data-config-image="hero" src="assets/images/hero-hacienda.svg" alt="Hacienda iluminada de noche con flores y velas">
+      <div class="hero__shade"></div>
+
+      <div class="opening" id="opening" aria-labelledby="openingTitle">
         <p class="opening__eyebrow">M&Eacute;XICO CELEBRA &middot; OAXACA INSPIRA</p>
         <h2 id="openingTitle">UNA INVITACI&Oacute;N<br>PARA TI</h2>
         <button class="envelope" type="button" data-open-envelope aria-label="Abrir la invitaci&oacute;n de Lizbeth">
@@ -26,13 +29,8 @@
         </button>
         <p class="opening__hint">TOCA PARA ABRIR</p>
       </div>
-    </section>
-    <a class="skip-link" href="#bienvenida">Saltar a la invitación</a>
 
-    <header class="hero section" id="inicio" data-reveal>
-      <img class="hero__image" data-config-image="hero" src="assets/images/hero-hacienda.svg" alt="Hacienda iluminada de noche con flores y velas">
-      <div class="hero__shade"></div>
-      <div class="hero__content">
+      <div class="hero__content" data-hero-content tabindex="-1">
         <p class="eyebrow">ESTÁS INVITADO A CELEBRAR</p>
         <h1>Lizbeth</h1>
         <p class="hero__age">cumple <strong>41</strong></p>
@@ -41,6 +39,7 @@
         <button class="button button--primary" data-scroll-to="#bienvenida">ABRIR INVITACIÓN</button>
       </div>
     </header>
+    <a class="skip-link" href="#bienvenida">Saltar a la invitación</a>
 
     <main>
       <section class="section welcome paper" id="bienvenida" data-reveal>
@@ -274,20 +273,10 @@
             <div class="guest-fields" data-guest-fields></div>
           </div>
           <div class="rsvp__step" data-step="6" hidden>
-            <h2>Restricciones alimentarias</h2>
-            <label for="restrictions">Opcional</label>
-            <textarea id="restrictions" name="restrictions" rows="4" placeholder="Ninguna"></textarea>
-          </div>
-          <div class="rsvp__step" data-step="7" hidden>
-            <h2>Comentarios</h2>
-            <label for="comments">Opcional</label>
-            <textarea id="comments" name="comments" rows="4"></textarea>
-          </div>
-          <div class="rsvp__step" data-step="8" hidden>
             <h2>Revisión</h2>
             <div class="review-box" data-review></div>
           </div>
-          <div class="rsvp__step" data-step="9" hidden>
+          <div class="rsvp__step" data-step="7" hidden>
             <h2>¡GRACIAS!</h2>
             <p>Tu asistencia quedó registrada.</p>
             <div class="pass-card">
@@ -295,8 +284,8 @@
               <strong data-folio>L41-000</strong>
               <p>ASISTENTES</p>
               <strong data-final-count>1</strong>
-              <div class="qr-placeholder">FUTURO QR</div>
-              <p class="field-hint">El QR futuro debe contener únicamente un identificador/token.</p>
+              <div class="qr-code" data-qr-code aria-label="Código QR de tu folio"></div>
+              <p class="field-hint">Este QR codifica tu folio. Cuando conectemos el check-in del evento, será tu pase de entrada.</p>
             </div>
           </div>
           <p class="form-error" data-form-error hidden></p>
@@ -310,6 +299,7 @@
 
     <script src="data/config.js"></script>
     <script src="js/countdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="js/rsvp.js"></script>
     <script src="js/app.js"></script>
   </body>

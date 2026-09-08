@@ -18,7 +18,7 @@ window.INVITATION_CONFIG = {
     ]
   },
   contact: {
-    WHATSAPP_NUMBER: "",
+    WHATSAPP_NUMBER: "525591993557",
     whatsappMessage: "Hola, tengo una duda sobre la celebración de Lizbeth."
   },
   links: {

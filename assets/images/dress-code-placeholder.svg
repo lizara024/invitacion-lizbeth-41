@@ -1,7 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-label="Inspiración provisional de dress code">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-label="Inspiración de vestimenta oaxaqueña elegante">
   <rect width="900" height="700" fill="#fff7e9"/>
-  <rect x="90" y="80" width="210" height="530" rx="8" fill="#f2d9ba"/><rect x="345" y="80" width="210" height="530" rx="8" fill="#c87955"/><rect x="600" y="80" width="210" height="530" rx="8" fill="#f4ead8"/>
-  <g fill="#3b102b" opacity=".26"><circle cx="195" cy="190" r="48"/><circle cx="450" cy="190" r="48"/><circle cx="705" cy="190" r="48"/></g>
-  <g fill="none" stroke="#c13f76" stroke-width="8"><path d="M130 330h130M385 330h130M640 330h130"/><path d="M170 380c20 30 30 70 25 120M450 380c0 45 0 85 0 120M730 380c-20 30-30 70-25 120"/></g>
-  <text x="450" y="660" text-anchor="middle" font-family="Georgia,serif" font-size="38" fill="#3b102b">INSPIRACIÓN REEMPLAZABLE</text>
+  <rect x="28" y="28" width="844" height="644" fill="none" stroke="#b98a3a" stroke-opacity="0.4" stroke-width="2"/>
+  <line x1="450" y1="90" x2="450" y2="600" stroke="#b98a3a" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Vestido / huipil bordado -->
+  <g stroke="#3b102b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M215 118 L280 88 L345 118"/>
+    <line x1="280" y1="88" x2="280" y2="140"/>
+    <path d="M240 140 Q280 168 320 140"/>
+    <path d="M225 150 L335 150 L365 566 L195 566 Z" fill="#fff7e9"/>
+  </g>
+  <g fill="none" stroke="#c13f76" stroke-width="6" stroke-linecap="round">
+    <path d="M217 250h126"/>
+    <path d="M208 470h144"/>
+  </g>
+  <g fill="none" stroke="#c13f76" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M215 500l12 14 12-14 12 14 12-14 12 14 12-14 12 14 12-14 12 14 12-14 12 14 12-14"/>
+  </g>
+
+  <!-- Guayabera / camisa de lino -->
+  <g stroke="#a94f32" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M555 118 L620 88 L685 118"/>
+    <line x1="620" y1="88" x2="620" y2="150"/>
+    <path d="M585 150 L620 180 L655 150" fill="#fff7e9"/>
+    <path d="M560 165 L680 165 L672 570 L568 570 Z" fill="#fff7e9"/>
+    <line x1="595" y1="185" x2="595" y2="560"/>
+    <line x1="645" y1="185" x2="645" y2="560"/>
+    <line x1="620" y1="180" x2="620" y2="570"/>
+    <rect x="600" y="330" width="40" height="46" rx="2"/>
+  </g>
+  <g fill="#a94f32">
+    <circle cx="620" cy="210" r="4"/>
+    <circle cx="620" cy="260" r="4"/>
+    <circle cx="620" cy="310" r="4"/>
+  </g>
 </svg>

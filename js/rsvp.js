@@ -6,14 +6,12 @@
 
   const state = {
     step: 1,
-    maxStep: 9,
+    maxStep: 7,
     confirmName: "",
     phone: "",
     attends: null,
     partyCount: 1,
     guests: [""],
-    restrictions: "",
-    comments: "",
     folio: ""
   };
 
@@ -43,12 +41,6 @@
     }
     if (state.step === 5) {
       state.guests = Array.from(form.querySelectorAll("[data-guest-input]")).map((input) => input.value.trim());
-    }
-    if (state.step === 6) {
-      state.restrictions = form.restrictions.value.trim();
-    }
-    if (state.step === 7) {
-      state.comments = form.comments.value.trim();
     }
   }
 
@@ -119,23 +111,41 @@
   }
 
   function renderReview() {
-    const restrictions = state.restrictions || "Ninguna";
-    const comments = state.comments || "Sin comentarios";
     const guestList = state.guests.map((name) => `<li>${escapeHtml(name)}</li>`).join("");
     review.innerHTML = `
       <p><strong>${escapeHtml(state.confirmName)}</strong></p>
       <p>Asistiremos:<br><strong>${state.partyCount} ${state.partyCount === 1 ? "persona" : "personas"}</strong></p>
       <ul>${guestList}</ul>
-      <p>Restricciones:<br>${escapeHtml(restrictions)}</p>
-      <p>Comentarios:<br>${escapeHtml(comments)}</p>
     `;
   }
 
   function generateFolio() {
-    const seed = `${Date.now()}${Math.floor(Math.random() * 900 + 100)}`;
-    state.folio = `L41-${seed.slice(-3)}`;
+    const seed = Math.floor(Math.random() * 900 + 100);
+    state.folio = `L41-${seed}`;
     form.querySelector("[data-folio]").textContent = state.folio;
     form.querySelector("[data-final-count]").textContent = String(state.partyCount);
+    renderFolioQr(state.folio);
+  }
+
+  function renderFolioQr(folio) {
+    const container = form.querySelector("[data-qr-code]");
+    if (!container) return;
+    container.innerHTML = "";
+    try {
+      new QRCode(container, {
+        text: folio,
+        width: 168,
+        height: 168,
+        colorDark: "#3b102b",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    } catch (err) {
+      const fallback = document.createElement("p");
+      fallback.className = "qr-code__fallback";
+      fallback.textContent = folio;
+      container.appendChild(fallback);
+    }
   }
 
   function buildRsvpPayload() {
@@ -146,8 +156,6 @@
       attends: state.attends,
       partyCount: state.partyCount,
       guests: state.guests,
-      restrictions: state.restrictions,
-      comments: state.comments,
       createdAt: new Date().toISOString()
     };
   }
@@ -164,15 +172,15 @@
       step.hidden = Number(step.dataset.step) !== state.step;
     });
 
-    const percentage = state.step >= 9 ? 100 : Math.round((state.step - 1) / 7 * 100);
+    const percentage = state.step >= 7 ? 100 : Math.round((state.step - 1) / 5 * 100);
     progress.style.width = `${Math.max(12.5, percentage)}%`;
-    backButton.hidden = state.step === 1 || state.step === 9;
+    backButton.hidden = state.step === 1 || state.step === 7;
     nextButton.hidden = state.step === 3 && state.attends === false;
-    nextButton.textContent = state.step === 8 ? "CONFIRMAR ASISTENCIA" : "SIGUIENTE";
+    nextButton.textContent = state.step === 6 ? "CONFIRMAR ASISTENCIA" : "SIGUIENTE";
 
     if (state.step === 5) renderGuestFields();
-    if (state.step === 8) renderReview();
-    if (state.step === 9) {
+    if (state.step === 6) renderReview();
+    if (state.step === 7) {
       nextButton.hidden = true;
       backButton.hidden = true;
     }
@@ -185,10 +193,10 @@
   function nextStep() {
     if (!validateStep()) return;
 
-    if (state.step === 8) {
+    if (state.step === 6) {
       generateFolio();
       submitDemoRsvp();
-      state.step = 9;
+      state.step = 7;
     } else {
       state.step += 1;
     }

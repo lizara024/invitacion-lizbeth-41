@@ -14,9 +14,10 @@
   }
 
   function setupEnvelope() {
+    const hero = document.getElementById("inicio");
     const opening = document.getElementById("opening");
     const button = document.querySelector("[data-open-envelope]");
-    if (!opening || !button) return;
+    if (!hero || !opening || !button) return;
 
     document.body.classList.add("has-opening");
 
@@ -26,15 +27,15 @@
       button.disabled = true;
 
       const finish = () => {
-        opening.hidden = true;
+        hero.classList.add("is-open");
         document.body.classList.remove("has-opening");
-        document.getElementById("inicio")?.focus?.({ preventScroll: true });
+        hero.querySelector("[data-hero-content]")?.focus?.({ preventScroll: true });
       };
 
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         finish();
       } else {
-        window.setTimeout(finish, 1050);
+        window.setTimeout(finish, 850);
       }
     }
 
