@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-label="Placeholder para fotografía personal">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7e9"/><stop offset="1" stop-color="#d9aa75"/></linearGradient></defs>
+  <rect width="900" height="700" fill="url(#g)"/>
+  <circle cx="450" cy="245" r="110" fill="#3b102b" opacity=".22"/>
+  <path d="M250 650c20-160 120-240 200-240s180 80 200 240z" fill="#3b102b" opacity=".24"/>
+  <g fill="none" stroke="#c13f76" stroke-width="10"><path d="M125 155c70 40 145 40 220 0"/><path d="M555 155c70 40 145 40 220 0"/></g>
+  <text x="450" y="585" text-anchor="middle" font-family="Georgia,serif" font-size="44" fill="#3b102b">FOTOGRAFÍA PERSONAL</text>
+  <text x="450" y="635" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#6d5960">Reemplazar antes de publicar</text>
+</svg>

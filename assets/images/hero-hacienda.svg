@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Hacienda nocturna con luces cálidas, flores y velas">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#090812"/><stop offset=".55" stop-color="#241026"/><stop offset="1" stop-color="#3b102b"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="55%"><stop stop-color="#f3b85c" stop-opacity=".35"/><stop offset=".38" stop-color="#b95735" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <pattern id="stone" width="90" height="42" patternUnits="userSpaceOnUse"><path d="M0 41h90M28 0v41M65 0v41" stroke="#65403a" stroke-width="3" opacity=".45"/></pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <path d="M130 470h1340v240H130z" fill="#4b251f"/>
+  <path d="M170 315h1260v170H170z" fill="#6b3728"/>
+  <path d="M210 285h1180l55 55H155z" fill="#8a4a31"/>
+  <g fill="#120b10"><path d="M270 395h120v315H270z"/><path d="M510 395h120v315H510z"/><path d="M970 395h120v315H970z"/><path d="M1210 395h120v315h-120z"/></g>
+  <path d="M700 710V450c0-95 200-95 200 0v260z" fill="#150b12"/>
+  <rect y="710" width="1600" height="290" fill="#221414"/>
+  <rect y="710" width="1600" height="290" fill="url(#stone)" opacity=".75"/>
+  <path d="M110 335C290 150 470 255 630 210c170-50 250-120 430-42 130 56 250 16 420-50v260H110z" fill="#200d19" opacity=".72"/>
+  <g stroke="#f6c36e" stroke-width="5" fill="#ffd784">
+    <path d="M180 260c290-85 480 20 690-18 245-45 375-95 575-25" fill="none"/>
+    <circle cx="245" cy="246" r="12"/><circle cx="365" cy="240" r="10"/><circle cx="495" cy="254" r="11"/><circle cx="630" cy="254" r="10"/><circle cx="780" cy="242" r="13"/><circle cx="930" cy="224" r="10"/><circle cx="1085" cy="196" r="12"/><circle cx="1250" cy="190" r="10"/><circle cx="1400" cy="210" r="12"/>
+  </g>
+  <g opacity=".95">
+    <circle cx="180" cy="785" r="32" fill="#f2b866"/><rect x="168" y="730" width="24" height="90" rx="10" fill="#fff1c7"/>
+    <circle cx="1350" cy="800" r="36" fill="#f2b866"/><rect x="1337" y="738" width="26" height="98" rx="10" fill="#fff1c7"/>
+    <circle cx="1240" cy="770" r="22" fill="#f2b866"/><rect x="1231" y="730" width="18" height="64" rx="8" fill="#fff1c7"/>
+  </g>
+  <g fill="#c13f76"><circle cx="118" cy="430" r="34"/><circle cx="1510" cy="395" r="38"/><circle cx="1395" cy="590" r="28"/><circle cx="310" cy="560" r="25"/></g>
+  <g fill="#e77437"><circle cx="160" cy="515" r="24"/><circle cx="1450" cy="520" r="30"/><circle cx="1260" cy="610" r="22"/></g>
+  <g fill="#3eaaa0" opacity=".78"><ellipse cx="210" cy="470" rx="20" ry="58" transform="rotate(38 210 470)"/><ellipse cx="1355" cy="455" rx="18" ry="55" transform="rotate(-30 1355 455)"/><ellipse cx="420" cy="520" rx="16" ry="42" transform="rotate(25 420 520)"/></g>
+</svg>

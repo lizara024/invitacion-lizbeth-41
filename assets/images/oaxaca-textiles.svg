@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-label="Textiles oaxaqueños provisionales">
+  <rect width="900" height="700" fill="#3b102b"/>
+  <g opacity=".95">
+    <path d="M0 80h900v60H0z" fill="#c13f76"/><path d="M0 250h900v46H0z" fill="#3eaaa0"/><path d="M0 420h900v70H0z" fill="#b95735"/><path d="M0 585h900v38H0z" fill="#c99a4a"/>
+  </g>
+  <g fill="none" stroke="#fff7e9" stroke-width="10" opacity=".8">
+    <path d="M80 110l60-40 60 40-60 40zM320 110l60-40 60 40-60 40zM560 110l60-40 60 40-60 40zM760 110l60-40 60 40-60 40z"/>
+    <path d="M120 445c60-80 120-80 180 0s120 80 180 0 120-80 180 0 120 80 180 0"/>
+  </g>
+</svg>

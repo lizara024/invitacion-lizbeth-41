@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-label="Velas cálidas provisionales">
+  <rect width="900" height="700" fill="#16050f"/>
+  <radialGradient id="v" cx="50%" cy="45%" r="60%"><stop stop-color="#f6c36e" stop-opacity=".55"/><stop offset="1" stop-color="#16050f" stop-opacity="0"/></radialGradient>
+  <rect width="900" height="700" fill="url(#v)"/>
+  <g>
+    <rect x="210" y="300" width="95" height="260" rx="18" fill="#fff1c7"/><path d="M258 230c55 62 25 100 0 118-25-18-55-56 0-118z" fill="#f0a53a"/>
+    <rect x="390" y="230" width="120" height="330" rx="22" fill="#fff7e9"/><path d="M450 145c65 78 30 126 0 148-30-22-65-70 0-148z" fill="#f0a53a"/>
+    <rect x="610" y="340" width="88" height="220" rx="18" fill="#f3dfba"/><path d="M654 275c50 58 23 93 0 110-23-17-50-52 0-110z" fill="#f0a53a"/>
+  </g>
+</svg>

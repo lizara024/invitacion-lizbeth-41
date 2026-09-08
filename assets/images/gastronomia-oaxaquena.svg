@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-label="Gastronomía mexicana provisional">
+  <rect width="900" height="700" fill="#2a0b1e"/>
+  <circle cx="450" cy="360" r="245" fill="#c99a4a"/>
+  <circle cx="450" cy="360" r="205" fill="#fff7e9"/>
+  <path d="M260 390c160-120 320-120 380 0-95 105-285 105-380 0z" fill="#74351f"/>
+  <g fill="#f7eddc"><circle cx="340" cy="330" r="18"/><circle cx="455" cy="305" r="16"/><circle cx="555" cy="345" r="18"/></g>
+  <g fill="#c13f76"><circle cx="375" cy="410" r="16"/><circle cx="510" cy="405" r="16"/></g>
+  <g stroke="#3eaaa0" stroke-width="10"><path d="M210 165c70 20 115 70 132 150"/><path d="M690 165c-70 20-115 70-132 150"/></g>
+</svg>

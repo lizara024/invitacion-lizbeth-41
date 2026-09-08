@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" role="img" aria-label="Hacienda provisional para ubicación">
+  <defs><linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0c1224"/><stop offset="1" stop-color="#3b102b"/></linearGradient></defs>
+  <rect width="1100" height="720" fill="url(#n)"/>
+  <rect x="80" y="310" width="940" height="240" fill="#6b3728"/>
+  <path d="M120 250h860l60 70H60z" fill="#b95735"/>
+  <path d="M480 550V355c0-90 140-90 140 0v195z" fill="#16050f"/>
+  <g fill="#16050f"><rect x="160" y="370" width="110" height="180"/><rect x="330" y="370" width="110" height="180"/><rect x="660" y="370" width="110" height="180"/><rect x="830" y="370" width="110" height="180"/></g>
+  <path d="M0 550h1100v170H0z" fill="#241414"/>
+  <g stroke="#ffd784" stroke-width="5" fill="#ffd784"><path d="M140 250c250-70 430 10 610-20 125-22 220-35 310 0" fill="none"/><circle cx="210" cy="238" r="10"/><circle cx="360" cy="244" r="10"/><circle cx="520" cy="244" r="10"/><circle cx="690" cy="232" r="10"/><circle cx="870" cy="220" r="10"/><circle cx="1020" cy="238" r="10"/></g>
+  <text x="550" y="655" text-anchor="middle" font-family="Georgia,serif" font-size="40" fill="#fff7e9">HACIENDA PUERTA GRANDE</text>
+</svg>
