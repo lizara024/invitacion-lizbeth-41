@@ -241,6 +241,10 @@
         <button class="modal__close" type="button" data-close-modal aria-label="Cerrar">×</button>
         <form id="rsvpForm" novalidate>
           <div class="rsvp__progress"><span data-rsvp-progress></span></div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="companyWebsite">No llenar este campo</label>
+            <input id="companyWebsite" name="companyWebsite" type="text" tabindex="-1" autocomplete="off">
+          </div>
           <div class="rsvp__step" data-step="1">
             <h2 id="rsvpTitle">¿Quién confirma?</h2>
             <label for="confirmName">Nombre completo</label>
@@ -259,6 +263,8 @@
               <button type="button" class="choice" data-attendance="no">NO PODRÉ ACOMPAÑARTE</button>
             </div>
             <p class="decline-message" data-decline-message hidden>Gracias por avisarme.<br>Será una pena no verte, pero espero que podamos celebrar juntos en otra ocasión.</p>
+            <button type="button" class="button button--primary" data-decline-submit hidden>ENVIAR AVISO</button>
+            <p class="decline-sent" data-decline-sent hidden>Tu respuesta quedó registrada. ¡Gracias por avisarme!</p>
           </div>
           <div class="rsvp__step" data-step="4" hidden>
             <h2>¿Cuántas personas asistirán?</h2>
@@ -300,6 +306,7 @@
     <script src="data/config.js"></script>
     <script src="js/countdown.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="js/rsvp.js"></script>
     <script src="js/app.js"></script>
   </body>

@@ -4,6 +4,10 @@ window.INVITATION_CONFIG = {
     displayName: "LIZBETH",
     age: 41
   },
+  backend: {
+    supabaseUrl: "https://cneuyueqiysmydeauezt.supabase.co",
+    supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNuZXV5dWVxaXlzbXlkZWF1ZXp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg4OTI5OTUsImV4cCI6MjEwNDQ2ODk5NX0.s65CSr_GBgKwaJZSLQ1voixQ4ks4yXWkR4HtGD5MYLc"
+  },
   event: {
     dateISO: "2027-07-17T19:00:00-06:00",
     dateDisplay: "17 de julio de 2027",

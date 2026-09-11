@@ -4,6 +4,23 @@
   const form = document.getElementById("rsvpForm");
   if (!form) return;
 
+  const config = window.INVITATION_CONFIG || {};
+  let supabaseClient = null;
+
+  function getSupabaseClient() {
+    if (supabaseClient) return supabaseClient;
+    const url = config.backend?.supabaseUrl;
+    const key = config.backend?.supabaseAnonKey;
+    if (!url || !key || url.startsWith("PEGA_AQUI") || key.startsWith("PEGA_AQUI")) return null;
+    if (typeof window.supabase === "undefined") return null;
+    supabaseClient = window.supabase.createClient(url, key);
+    return supabaseClient;
+  }
+
+  function isLikelyBot() {
+    return Boolean(form.companyWebsite && form.companyWebsite.value);
+  }
+
   const state = {
     step: 1,
     maxStep: 7,
@@ -119,12 +136,11 @@
     `;
   }
 
-  function generateFolio() {
-    const seed = Math.floor(Math.random() * 900 + 100);
-    state.folio = `L41-${seed}`;
-    form.querySelector("[data-folio]").textContent = state.folio;
+  function showFolioAndQr(folio) {
+    state.folio = folio;
+    form.querySelector("[data-folio]").textContent = folio;
     form.querySelector("[data-final-count]").textContent = String(state.partyCount);
-    renderFolioQr(state.folio);
+    renderFolioQr(folio);
   }
 
   function renderFolioQr(folio) {
@@ -132,6 +148,7 @@
     if (!container) return;
     container.innerHTML = "";
     try {
+      // eslint-disable-next-line no-undef
       new QRCode(container, {
         text: folio,
         width: 168,
@@ -150,21 +167,49 @@
 
   function buildRsvpPayload() {
     return {
-      token: state.folio,
-      confirmName: state.confirmName,
+      confirm_name: state.confirmName,
       phone: state.phone,
       attends: state.attends,
-      partyCount: state.partyCount,
-      guests: state.guests,
-      createdAt: new Date().toISOString()
+      party_count: state.partyCount,
+      guests: state.guests
     };
   }
 
-  function submitDemoRsvp() {
-    const payload = buildRsvpPayload();
-    window.LIZBETH_41_LAST_RSVP = payload;
-    console.info("RSVP demo listo para backend:", payload);
-    return payload;
+  async function submitRsvp() {
+    if (isLikelyBot()) {
+      showFolioAndQr(`L41-${Math.floor(Math.random() * 900 + 100)}`);
+      state.step = 7;
+      renderStep();
+      return;
+    }
+
+    const client = getSupabaseClient();
+    if (!client) {
+      showError("La confirmación aún no está conectada. Avísale a Lizbeth para revisar la configuración.");
+      return;
+    }
+
+    nextButton.disabled = true;
+    nextButton.textContent = "ENVIANDO...";
+    showError("");
+
+    const { data, error } = await client
+      .from("rsvps")
+      .insert(buildRsvpPayload())
+      .select()
+      .single();
+
+    nextButton.disabled = false;
+    nextButton.textContent = "CONFIRMAR ASISTENCIA";
+
+    if (error || !data) {
+      showError("No pudimos guardar tu confirmación. Revisa tu conexión e intenta de nuevo.");
+      return;
+    }
+
+    showFolioAndQr(data.folio);
+    state.step = 7;
+    renderStep();
   }
 
   function renderStep() {
@@ -190,17 +235,15 @@
     if (focusable) window.setTimeout(() => focusable.focus(), 60);
   }
 
-  function nextStep() {
+  async function nextStep() {
     if (!validateStep()) return;
 
     if (state.step === 6) {
-      generateFolio();
-      submitDemoRsvp();
-      state.step = 7;
+      await submitRsvp();
     } else {
       state.step += 1;
+      renderStep();
     }
-    renderStep();
   }
 
   function previousStep() {
@@ -215,9 +258,41 @@
       form.querySelectorAll("[data-attendance]").forEach((choice) => choice.classList.remove("is-selected"));
       button.classList.add("is-selected");
       form.querySelector("[data-decline-message]").hidden = state.attends;
+      form.querySelector("[data-decline-submit]").hidden = state.attends;
+      form.querySelector("[data-decline-sent]").hidden = true;
       nextButton.hidden = !state.attends;
       showError("");
     });
+  });
+
+  form.querySelector("[data-decline-submit]").addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    if (isLikelyBot()) {
+      form.querySelector("[data-decline-message]").hidden = true;
+      button.hidden = true;
+      form.querySelector("[data-decline-sent]").hidden = false;
+      return;
+    }
+
+    const client = getSupabaseClient();
+    button.disabled = true;
+    button.textContent = "ENVIANDO...";
+
+    if (client) {
+      await client.from("rsvps").insert({
+        confirm_name: state.confirmName,
+        phone: state.phone,
+        attends: false,
+        party_count: 0,
+        guests: []
+      });
+    }
+
+    button.disabled = false;
+    button.textContent = "ENVIAR AVISO";
+    form.querySelector("[data-decline-message]").hidden = true;
+    button.hidden = true;
+    form.querySelector("[data-decline-sent]").hidden = false;
   });
 
   form.querySelector("[data-party-minus]").addEventListener("click", () => setGuestCount(state.partyCount - 1));

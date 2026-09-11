@@ -1,0 +1,16 @@
+.checkin-body { margin: 0; min-height: 100vh; background: var(--wine-deep); background-image: linear-gradient(135deg, rgba(182, 45, 104, .15), transparent 40%); font-family: var(--sans); color: var(--paper); }
+.checkin { width: min(480px, calc(100% - 2rem)); margin: 0 auto; padding: 2.5rem 0 3rem; }
+.checkin h1 { margin: 0; font-family: var(--serif); color: var(--paper); font-size: 2rem; text-align: center; }
+.checkin-sub { margin: .35rem 0 0; color: rgba(255, 249, 238, .7); font-size: .8rem; text-align: center; letter-spacing: .05em; }
+.checkin-card { margin-top: 1.75rem; padding: 1.5rem; color: var(--ink); background: var(--paper); border-radius: 6px; box-shadow: var(--shadow); }
+.checkin-card h2 { margin: 0 0 .25rem; color: var(--wine); font-size: 1.3rem; }
+.checkin-card label { display: block; margin: 1rem 0 .35rem; color: var(--wine); font-weight: 800; font-size: .85rem; }
+.checkin-card input { width: 100%; min-height: 48px; padding: .8rem; border: 1px solid var(--line); border-radius: 3px; font: inherit; }
+.checkin-card .button { width: 100%; margin-top: 1.1rem; }
+#qrReader { margin-top: .25rem; overflow: hidden; border-radius: 6px; }
+#manualEntry { padding-top: 1rem; margin-top: 1rem; border-top: 1px solid var(--line); }
+#resultCard { padding: 1rem; margin-top: 1.25rem; border: 1px solid var(--line); border-radius: 4px; background: #fffdf8; }
+.checkin-name { margin: 0 0 .2rem; color: var(--wine); font-family: var(--serif); font-size: 1.5rem; }
+.checkin-status--ok { color: var(--teal); font-weight: 800; }
+.checkin-status--pending { color: var(--terracotta); font-weight: 800; }
+.checkin-error { color: var(--bougainvillea); font-weight: 800; }

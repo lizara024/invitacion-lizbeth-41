@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Check-in · Lizbeth 41</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/checkin.css">
+  </head>
+  <body class="checkin-body">
+    <main class="checkin">
+      <h1>Check-in · Lizbeth 41</h1>
+      <p class="checkin-sub">Solo para staff. No compartas este link.</p>
+
+      <section id="loginView" class="checkin-card">
+        <h2>Acceso de staff</h2>
+        <label for="staffEmail">Correo</label>
+        <input id="staffEmail" type="email" autocomplete="username">
+        <label for="staffPassword">Contraseña</label>
+        <input id="staffPassword" type="password" autocomplete="current-password">
+        <button id="loginButton" type="button" class="button button--primary">ENTRAR</button>
+        <p id="loginError" class="form-error" hidden></p>
+      </section>
+
+      <section id="scanView" class="checkin-card" hidden>
+        <div id="qrReader"></div>
+        <p class="field-hint">Apunta la cámara al QR del invitado, o búscalo a mano.</p>
+        <div id="manualEntry">
+          <label for="manualFolio">Folio</label>
+          <input id="manualFolio" placeholder="L41-003">
+          <button id="manualLookup" type="button" class="button button--secondary">BUSCAR</button>
+        </div>
+        <div id="resultCard" hidden></div>
+      </section>
+    </main>
+
+    <script src="data/config.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="js/checkin.js"></script>
+  </body>
+</html>

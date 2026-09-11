@@ -171,6 +171,8 @@ address { color: var(--muted); font-style: normal; }
 .choice { min-height: 54px; padding: .9rem; border: 1px solid var(--line); border-radius: 3px; color: var(--wine); background: #fffdf8; font-size: .78rem; font-weight: 900; letter-spacing: .06em; }
 .choice.is-selected { color: var(--white); background: var(--wine); }
 .decline-message { padding: 1rem; color: var(--wine); border-left: 3px solid var(--gold); background: rgba(185, 138, 58, .11); }
+.decline-sent { padding: 1rem; color: var(--wine); border-left: 3px solid var(--teal); background: rgba(35, 127, 120, .11); }
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .counter-control { display: grid; grid-template-columns: 52px 1fr 52px; align-items: center; gap: .7rem; }
 .counter-control button { width: 52px; height: 52px; border: 0; border-radius: 50%; color: var(--white); background: var(--wine); font-size: 1.7rem; }
 .counter-control strong { color: var(--wine); font-family: var(--serif); font-size: 4rem; text-align: center; }
