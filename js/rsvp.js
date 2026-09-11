@@ -165,16 +165,6 @@
     }
   }
 
-  function buildRsvpPayload() {
-    return {
-      confirm_name: state.confirmName,
-      phone: state.phone,
-      attends: state.attends,
-      party_count: state.partyCount,
-      guests: state.guests
-    };
-  }
-
   async function submitRsvp() {
     if (isLikelyBot()) {
       showFolioAndQr(`L41-${Math.floor(Math.random() * 900 + 100)}`);
@@ -193,21 +183,23 @@
     nextButton.textContent = "ENVIANDO...";
     showError("");
 
-    const { data, error } = await client
-      .from("rsvps")
-      .insert(buildRsvpPayload())
-      .select()
-      .single();
+    const { data: folio, error } = await client.rpc("submit_rsvp", {
+      p_confirm_name: state.confirmName,
+      p_phone: state.phone,
+      p_attends: state.attends,
+      p_party_count: state.partyCount,
+      p_guests: state.guests
+    });
 
     nextButton.disabled = false;
     nextButton.textContent = "CONFIRMAR ASISTENCIA";
 
-    if (error || !data) {
+    if (error || !folio) {
       showError("No pudimos guardar tu confirmación. Revisa tu conexión e intenta de nuevo.");
       return;
     }
 
-    showFolioAndQr(data.folio);
+    showFolioAndQr(folio);
     state.step = 7;
     renderStep();
   }
@@ -279,12 +271,9 @@
     button.textContent = "ENVIANDO...";
 
     if (client) {
-      await client.from("rsvps").insert({
-        confirm_name: state.confirmName,
-        phone: state.phone,
-        attends: false,
-        party_count: 0,
-        guests: []
+      await client.rpc("submit_decline", {
+        p_confirm_name: state.confirmName,
+        p_phone: state.phone
       });
     }
 

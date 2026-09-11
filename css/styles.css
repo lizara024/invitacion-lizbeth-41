@@ -98,9 +98,9 @@ h3 { margin: 0 0 .5rem; color: var(--terracotta); font-size: 1.35rem; line-heigh
 .date-band::before, .details::after, .gastronomy::before, .rsvp-section::after { position: absolute; right: 0; bottom: 0; left: 0; height: 10px; content: ""; opacity: .75; background: repeating-linear-gradient(90deg, var(--gold) 0 32px, transparent 32px 48px, var(--teal) 48px 78px, transparent 78px 96px, var(--bougainvillea) 96px 128px, transparent 128px 148px); }
 .date-grid { display: grid; gap: 2rem; }
 .date-band .section-kicker { color: #e8c474; }
-.calendar-mark { display: grid; gap: .25rem; color: #ffe7c7; }
-.calendar-mark span { font-size: clamp(6rem, 29vw, 10.5rem); font-weight: 600; line-height: .62; }
-.calendar-mark strong, .calendar-mark em { font-size: clamp(2.1rem, 9vw, 4rem); font-style: normal; line-height: .75; }
+.calendar-mark { display: grid; gap: .35rem; color: #ffe7c7; }
+.calendar-mark span { font-size: clamp(5rem, 22vw, 9rem); font-weight: 600; line-height: 1; }
+.calendar-mark strong, .calendar-mark em { font-size: clamp(2.1rem, 9vw, 4rem); font-style: normal; line-height: 1.05; }
 .date-card__time { color: #e48ab0; font-size: .8rem; font-weight: 800; letter-spacing: .12em; }
 .countdown { padding: 1.25rem 0; border-top: 1px solid rgba(255, 231, 199, .34); border-bottom: 1px solid rgba(255, 231, 199, .34); }
 .countdown__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
