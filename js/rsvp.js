@@ -145,8 +145,10 @@
 
   function renderFolioQr(folio) {
     const container = form.querySelector("[data-qr-code]");
+    const downloadButton = form.querySelector("[data-download-qr]");
     if (!container) return;
     container.innerHTML = "";
+    let qrRendered = true;
     try {
       // eslint-disable-next-line no-undef
       new QRCode(container, {
@@ -158,12 +160,57 @@
         correctLevel: QRCode.CorrectLevel.M
       });
     } catch (err) {
+      qrRendered = false;
       const fallback = document.createElement("p");
       fallback.className = "qr-code__fallback";
       fallback.textContent = folio;
       container.appendChild(fallback);
     }
+    if (downloadButton) downloadButton.hidden = !qrRendered;
   }
+
+  function getQrImageDataUrl() {
+    const container = form.querySelector("[data-qr-code]");
+    if (!container) return null;
+    const canvas = container.querySelector("canvas");
+    if (canvas) return canvas.toDataURL("image/png");
+    const img = container.querySelector("img");
+    if (img && img.src) return img.src;
+    return null;
+  }
+
+  async function saveOrShareQr() {
+    const dataUrl = getQrImageDataUrl();
+    if (!dataUrl) return;
+
+    const fileName = `${state.folio || "invitacion-lizbeth"}-qr.png`;
+
+    if (navigator.canShare) {
+      try {
+        const blob = await (await fetch(dataUrl)).blob();
+        const file = new File([blob], fileName, { type: "image/png" });
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: "Mi pase · Lizbeth cumple 41",
+            text: `Folio ${state.folio}`
+          });
+          return;
+        }
+      } catch (err) {
+        // Si el usuario cancela el share o falla, seguimos con la descarga normal.
+      }
+    }
+
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
+  form.querySelector("[data-download-qr]")?.addEventListener("click", saveOrShareQr);
 
   async function submitRsvp() {
     if (isLikelyBot()) {
